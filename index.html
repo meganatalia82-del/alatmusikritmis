@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengenal Alat Musik Ritmis - SLB Fase B</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Fredoka', 'Lexend', sans-serif;
+            background-color: #f0fdf4;
+            color: #1e293b;
+            user-select: none;
+            font-size: 20px;
+        }
+
+        .btn-big {
+            font-size: 1.35rem;
+            font-weight: 700;
+            padding: 1rem 1.75rem;
+            border-radius: 2rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .btn-big:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .card-custom {
+            border-radius: 1.5rem;
+            border: 4px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Printable certificate formatting */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: 10px solid #4f46e5 !important;
+                background: white !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        .animate-bounce-gentle {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-amber-50 min-h-screen flex flex-col justify-between">
+
+    <!-- TOP NAVBAR -->
+    <header class="bg-teal-600 text-white p-4 shadow-lg sticky top-0 z-50 no-print">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('beranda')">
+                <span class="text-3xl">🥁</span>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-wide">Musik Ritmis SLB</h1>
+            </div>
+            
+            <div class="flex items-center gap-2 flex-wrap">
+                <button onclick="readCurrentPageText()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-4 py-2 rounded-full text-lg shadow flex items-center gap-2 transition">
+                    <i class="fa-solid fa-volume-high text-xl"></i> 
+                    <span>🔊 Baca Halaman</span>
+                </button>
+                <button onclick="showPage('guru')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-full text-lg shadow flex items-center gap-2 transition">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>Info Guru</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-5xl mx-auto p-4 md:p-6 flex-grow w-full">
+
+        <!-- HALAMAN 1: BERANDA -->
+        <section id="page-beranda" class="page-content text-center py-6">
+            <div class="bg-white p-8 rounded-3xl shadow-xl border-4 border-teal-300 max-w-3xl mx-auto">
+                <div class="inline-block p-4 bg-teal-100 rounded-full mb-4 animate-bounce-gentle">
+                    <span class="text-7xl">🥁</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-teal-700 mb-3">
+                    Mengenal Alat Musik Ritmis
+                </h2>
+                <p class="text-2xl text-slate-600 mb-8 font-medium">
+                    Belajar Musik dengan Menyenangkan
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 my-6">
+                    <button onclick="showPage('mengenal')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        <i class="fa-solid fa-play text-2xl"></i> MULAI BELAJAR
+                    </button>
+                    <button onclick="showPage('petunjuk')" class="btn-big bg-sky-500 hover:bg-sky-600 text-white">
+                        <i class="fa-solid fa-circle-info text-2xl"></i> PETUNJUK
+                    </button>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-200 text-slate-500 text-lg">
+                    <p>Fase B • Sekolah Luar Biasa (SLB) • Media Interaktif</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: PETUNJUK -->
+        <section id="page-petunjuk" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-sky-300">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-4xl">💡</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-sky-800">Petunjuk Belajar</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                    <div class="flex items-center gap-4 p-5 bg-sky-50 rounded-2xl border-2 border-sky-200">
+                        <span class="text-4xl bg-white p-3 rounded-full shadow">👆</span>
+                        <p class="text-xl font-semibold text-slate-700">Klik tombol untuk belajar.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-emerald-50 rounded-2xl border-2 border-emerald-200">
+                        <span class="text-4xl bg-white p-3 rounded-full shadow">🎯</span>
+                        <p class="text-xl font-semibold text-slate-700">Pilih jawaban yang kamu anggap benar.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-amber-50 rounded-2xl border-2 border-amber-200">
+                        <span class="text-4xl bg-white p-3 rounded-full shadow">⭐</span>
+                        <p class="text-xl font-semibold text-slate-700">Jika benar, kamu akan mendapat pujian.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-purple-50 rounded-2xl border-2 border-purple-200">
+                        <span class="text-4xl bg-white p-3 rounded-full shadow">🔄</span>
+                        <p class="text-xl font-semibold text-slate-700">Jika salah, coba lagi ya!</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showPage('mengenal')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        <i class="fa-solid fa-arrow-right text-2xl"></i> SAYA SIAP BELAJAR
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: MENGENAL ALAT MUSIK RITMIS -->
+        <section id="page-mengenal" class="page-content hidden">
+            <!-- Definisi Sederhana -->
+            <div class="bg-teal-50 border-4 border-teal-400 p-6 rounded-3xl shadow-md mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">💡</span>
+                    <h3 class="text-2xl font-bold text-teal-800">Apa itu Alat Musik Ritmis?</h3>
+                </div>
+                <p class="text-2xl font-medium text-slate-800 leading-relaxed">
+                    "Alat musik ritmis adalah alat musik yang digunakan untuk membuat <span class="bg-amber-200 px-2 py-1 rounded">irama</span> atau <span class="bg-amber-200 px-2 py-1 rounded">ketukan</span>."
+                </p>
+            </div>
+
+            <h3 class="text-3xl font-bold text-slate-800 mb-6 text-center">Yuk, Kenali Alat Musik Ritmis Berikut!</h3>
+
+            <!-- Grid Kartu Alat Musik -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="instrument-cards-container">
+                <!-- Cards injected via JavaScript -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-between items-center mt-10">
+                <button onclick="showPage('petunjuk')" class="btn-big bg-slate-400 hover:bg-slate-500 text-white">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="showPage('tebak')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                    Lanjut Tebak Gambar <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- HALAMAN 4: TEBAK ALAT MUSIK -->
+        <section id="page-tebak" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-indigo-300 text-center">
+                <div class="inline-block bg-indigo-100 text-indigo-800 px-4 py-1 rounded-full text-lg font-bold mb-4">
+                    Permainan 1: Tebak Gambar
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-6">Ini alat musik apa?</h2>
+
+                <div id="tebak-container" class="max-w-md mx-auto">
+                    <!-- Dynamic Guess Content injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 5: PILIH ALAT MUSIK RITMIS -->
+        <section id="page-pilih" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-amber-300 text-center">
+                <div class="inline-block bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-lg font-bold mb-2">
+                    Permainan 2: Pilih yang Benar
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">Pilih Alat Musik Ritmis</h2>
+                <p class="text-xl text-slate-600 mb-6">Klik gambar alat musik yang termasuk <strong>alat musik ritmis</strong>!</p>
+
+                <div id="pilih-grid" class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto my-6">
+                    <!-- Injected by JS -->
+                </div>
+
+                <div id="pilih-feedback" class="min-h-[60px] text-2xl font-bold my-4"></div>
+
+                <div class="flex justify-between items-center mt-8">
+                    <button onclick="showPage('tebak')" class="btn-big bg-slate-400 hover:bg-slate-500 text-white">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <button onclick="showPage('pasangkan')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        Lanjut Pasangkan <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 6: PASANGKAN -->
+        <section id="page-pasangkan" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-purple-300">
+                <div class="text-center mb-6">
+                    <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-lg font-bold">
+                        Permainan 3: Mencocokkan
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-2">Pasangkan Gambar dan Nama</h2>
+                    <p class="text-xl text-slate-600">Klik 1 Gambar, lalu klik Nama yang sesuai!</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto my-6">
+                    <!-- Column 1: Images -->
+                    <div class="flex flex-col gap-4" id="matching-images">
+                        <h3 class="text-center font-bold text-slate-700 text-xl border-b pb-2">Gambar</h3>
+                        <!-- Injected by JS -->
+                    </div>
+
+                    <!-- Column 2: Names -->
+                    <div class="flex flex-col gap-4" id="matching-names">
+                        <h3 class="text-center font-bold text-slate-700 text-xl border-b pb-2">Nama Alat Musik</h3>
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <div id="matching-status" class="text-center text-2xl font-bold text-emerald-600 min-h-[40px] my-4"></div>
+
+                <div class="flex justify-between items-center mt-8">
+                    <button onclick="showPage('pilih')" class="btn-big bg-slate-400 hover:bg-slate-500 text-white">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <button onclick="showPage('kuis')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        Mulai Kuis <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 7: KUIS SEDERHANA -->
+        <section id="page-kuis" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-rose-300">
+                <div class="flex justify-between items-center border-b pb-4 mb-6">
+                    <span class="text-2xl font-bold text-rose-700">📝 Kuis Sederhana</span>
+                    <span id="quiz-progress" class="bg-rose-100 text-rose-800 text-xl font-bold px-4 py-1 rounded-full">Soal 1/5</span>
+                </div>
+
+                <div id="quiz-question-container" class="max-w-2xl mx-auto">
+                    <!-- Dynamic Quiz Content -->
+                </div>
+
+                <div id="quiz-result-container" class="hidden text-center max-w-xl mx-auto py-6">
+                    <!-- Quiz final result -->
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 8: SERTIFIKAT SEDERHANA -->
+        <section id="page-sertifikat" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-amber-400 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-amber-800 mb-2">🎉 Selamat!</h2>
+                <p class="text-xl text-slate-700 mb-6">Kamu telah berhasil belajar tentang Alat Musik Ritmis!</p>
+
+                <!-- Input Nama -->
+                <div class="mb-8 max-w-md mx-auto no-print">
+                    <label for="student-name-input" class="block text-xl font-bold text-slate-700 mb-2">
+                        Masukkan Namamu di sini:
+                    </label>
+                    <input type="text" id="student-name-input" oninput="updateCertificateName()" placeholder="Contoh: Budi" class="w-full text-center text-2xl font-bold p-3 border-4 border-teal-300 rounded-2xl focus:outline-none focus:border-teal-500">
+                </div>
+
+                <!-- Printable Certificate Box -->
+                <div id="printable-certificate" class="border-8 border-double border-amber-500 p-8 rounded-3xl bg-amber-50 my-6 shadow-inner relative">
+                    <div class="text-5xl mb-2">🏆</div>
+                    <h1 class="text-4xl font-extrabold text-teal-800 tracking-wider uppercase mb-1">Sertifikat Kelulusan</h1>
+                    <p class="text-slate-600 font-semibold mb-6">Media Pembelajaran Seni Musik SLB Fase B</p>
+                    
+                    <p class="text-xl text-slate-700">Diberikan Kepada:</p>
+                    <h3 id="cert-name-display" class="text-4xl font-extrabold text-indigo-700 underline my-4 min-h-[48px]">
+                        [ Nama Peserta Didik ]
+                    </h3>
+
+                    <p class="text-xl text-slate-700 max-w-lg mx-auto leading-relaxed">
+                        Hebat! Kamu telah berhasil mengenal, menyebutkan, dan membedakan jenis-jenis <strong>Alat Musik Ritmis</strong> dengan sangat baik.
+                    </p>
+
+                    <div class="mt-8 flex justify-between items-end text-sm text-slate-500 pt-6 border-t border-amber-200">
+                        <div>
+                            <p class="font-bold text-slate-700">Tanggal Belajar</p>
+                            <p id="cert-date">-</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-700">Guru / Pendamping</p>
+                            <p class="mt-4 border-b border-slate-400 w-32 mx-auto"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 mt-8 no-print">
+                    <button onclick="window.print()" class="btn-big bg-indigo-600 hover:bg-indigo-700 text-white">
+                        <i class="fa-solid fa-print text-2xl"></i> CETAK / SIMPAN SERTIFIKAT
+                    </button>
+                    <button onclick="restartLearning()" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        <i class="fa-solid fa-rotate-right text-2xl"></i> ULANGI BELAJAR
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKSI 9: MATERI UNTUK GURU -->
+        <section id="page-guru" class="page-content hidden">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-indigo-400">
+                <div class="flex items-center gap-3 border-b pb-4 mb-6">
+                    <span class="text-4xl">📚</span>
+                    <div>
+                        <h2 class="text-3xl font-bold text-indigo-900">Materi & Panduan Guru</h2>
+                        <p class="text-lg text-slate-600">Panduan Pembelajaran Alat Musik Ritmis SLB Fase B</p>
+                    </div>
+                </div>
+
+                <!-- Tombol Dokumen Eksternal -->
+                <div class="bg-indigo-50 p-6 rounded-2xl mb-8 border border-indigo-200">
+                    <h3 class="text-xl font-bold text-indigo-900 mb-3">Dokumen Pembelajaran (Dapat Diunduh / Dibuka)</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="openGoogleDoc()" class="btn-big bg-blue-600 hover:bg-blue-700 text-white text-lg py-3">
+                            <i class="fa-solid fa-file-lines"></i> 📄 BUKA GOOGLE DOKUMEN
+                        </button>
+                        <button onclick="openWordFile()" class="btn-big bg-blue-800 hover:bg-blue-900 text-white text-lg py-3">
+                            <i class="fa-solid fa-file-word"></i> 📝 BUKA FILE WORD
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Tabs / Accordions -->
+                <div class="space-y-6 text-slate-800 text-lg">
+                    <div class="bg-slate-50 p-5 rounded-2xl border">
+                        <h3 class="font-bold text-indigo-800 text-xl mb-2">🎯 Tujuan Pembelajaran</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Peserta didik mampu mengenal pengertian sederhana alat musik ritmis.</li>
+                            <li>Peserta didik mampu mengenali beberapa jenis alat musik ritmis (Drum, Tamborin, Marakas, Rebana, Triangle, Kastanyet, Kendang).</li>
+                            <li>Peserta didik mampu membedakan alat musik ritmis berdasarkan gambar dan nama.</li>
+                            <li>Peserta didik mampu memilih dan mencocokkan alat musik ritmis dengan benar.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border">
+                        <h3 class="font-bold text-indigo-800 text-xl mb-2">📖 Ringkasan Materi</h3>
+                        <p class="leading-relaxed">
+                            Alat musik ritmis adalah alat musik yang tidak memiliki nada (do, re, mi), tetapi menghasilkan irama atau ketukan untuk mengatur tempo lagu. Contoh alat musik ritmis yang dekat dengan anak: Drum, Tamborin, Marakas, Rebana, Triangle, Kastanyet, dan Kendang.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border">
+                        <h3 class="font-bold text-indigo-800 text-xl mb-2">💡 Langkah Penggunaan Media</h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li><strong>Pendampingan Awal:</strong> Ajak anak menekan tombol "🔊 Baca Halaman" untuk mendengarkan instruksi secara eksplisit.</li>
+                            <li><strong>Eksplorasi:</strong> Biarkan anak menekan kartu alat musik dan mendengarkan contoh bunyi iramanya.</li>
+                            <li><strong>Latihan Interaktif:</strong> Bimbing anak menyelesaikan permainan Tebak Gambar, Pilih Alat Musik, dan Pasangkan Nama.</li>
+                            <li><strong>Evaluasi:</strong> Dampingi anak mengerjakan Kuis Sederhana 5 soal tanpa tekanan waktu.</li>
+                            <li><strong>Apresiasi:</strong> Cetak sertifikat atas nama anak untuk memberikan rasa bangga dan percaya diri.</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border">
+                        <h3 class="font-bold text-indigo-800 text-xl mb-2">🔑 Kunci Jawaban Kuis</h3>
+                        <ol class="list-decimal pl-6 space-y-1">
+                            <li>Soal 1: Drum (A)</li>
+                            <li>Soal 2: Membuat Irama / Ketukan (A)</li>
+                            <li>Soal 3: Triangle (A)</li>
+                            <li>Soal 4: Marakas (A)</li>
+                            <li>Soal 5: Rebana (A)</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border">
+                        <h3 class="font-bold text-indigo-800 text-xl mb-2">📋 Lembar Observasi Sederhana</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse border border-slate-300 mt-2 text-base">
+                                <thead>
+                                    <tr class="bg-slate-200">
+                                        <th class="border border-slate-300 p-2">No</th>
+                                        <th class="border border-slate-300 p-2">Indikator Kemampuan</th>
+                                        <th class="border border-slate-300 p-2 text-center">Mampu (M)</th>
+                                        <th class="border border-slate-300 p-2 text-center">Bimbingan (MB)</th>
+                                        <th class="border border-slate-300 p-2 text-center">Belum (BM)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2">1</td>
+                                        <td class="border border-slate-300 p-2">Mengenal bentuk alat musik ritmis</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2">2</td>
+                                        <td class="border border-slate-300 p-2">Menyebutkan nama alat musik ritmis</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2">3</td>
+                                        <td class="border border-slate-300 p-2">Membedakan alat musik ritmis & non-ritmis</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                        <td class="border border-slate-300 p-2 text-center">[ ]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button onclick="showPage('beranda')" class="btn-big bg-teal-600 hover:bg-teal-700 text-white">
+                        <i class="fa-solid fa-house"></i> Kembali ke Beranda
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-800 text-white text-center p-4 mt-8 no-print text-lg">
+        <p>Media Pembelajaran Interaktif SLB Fase B • Seni Musik - Alat Musik Ritmis</p>
+    </footer>
+
+    <script>
+        /* ==========================================================================
+           URL DOKUMEN GURU (DAPAT DIGANTI OLEH GURU)
+           ========================================================================== */
+        // GANTI URL GOOGLE DOKUMEN DI SINI:
+        const GOOGLE_DOCS_URL = "https://docs.google.com/document/d/ID_DOKUMEN_ANDA/edit";
+
+        // GANTI LINK FILE WORD DI SINI:
+        const WORD_FILE_URL = "LINK_FILE_WORD_ANDA";
+
+        function openGoogleDoc() {
+            if (GOOGLE_DOCS_URL.includes("ID_DOKUMEN_ANDA")) {
+                alert("URL Google Dokumen belum dikonfigurasi. Guru dapat mengganti variabel GOOGLE_DOCS_URL di dalam kode.");
+            } else {
+                window.open(GOOGLE_DOCS_URL, '_blank');
+            }
+        }
+
+        function openWordFile() {
+            if (WORD_FILE_URL.includes("LINK_FILE_WORD_ANDA")) {
+                alert("Link File Word belum dikonfigurasi. Guru dapat mengganti variabel WORD_FILE_URL di dalam kode.");
+            } else {
+                window.open(WORD_FILE_URL, '_blank');
+            }
+        }
+
+        /* ==========================================================================
+           DATA ALAT MUSIK (Dapat disesuaikan atau diganti gambarnya oleh guru)
+           ========================================================================== */
+        const instruments = [
+            {
+                id: 'drum',
+                name: 'Drum',
+                desc: 'Dipukul menggunakan stik kayu untuk menghasilkan bunyi dentuman yang mantap.',
+                icon: '🥁',
+                color: 'bg-red-100 border-red-400',
+                soundType: 'drum',
+                // UNTUK MENGGANTI GAMBAR: Isikan URL Gambar di atribut img
+                img: 'https://placehold.co/300x200/ef4444/ffffff?text=DRUM'
+            },
+            {
+                id: 'tamborin',
+                name: 'Tamborin',
+                desc: 'Digoyangkan atau ditepuk tangan untuk memunculkan bunyi gemerincing halus.',
+                icon: '🪘',
+                color: 'bg-amber-100 border-amber-400',
+                soundType: 'tamborin',
+                img: 'https://placehold.co/300x200/f59e0b/ffffff?text=TAMBORIN'
+            },
+            {
+                id: 'marakas',
+                name: 'Marakas',
+                desc: 'Pegang gagangnya lalu goyangkan. Bunyinya seperti gesekan beras berisik.',
+                icon: '🪇',
+                color: 'bg-emerald-100 border-emerald-400',
+                soundType: 'marakas',
+                img: 'https://placehold.co/300x200/10b981/ffffff?text=MARAKAS'
+            },
+            {
+                id: 'rebana',
+                name: 'Rebana',
+                desc: 'Alat musik berbentuk pipih bundar yang dimainkan dengan cara ditepuk telapak tangan.',
+                icon: '🪘',
+                color: 'bg-yellow-100 border-yellow-400',
+                soundType: 'rebana',
+                img: 'https://placehold.co/300x200/eab308/ffffff?text=REBANA'
+            },
+            {
+                id: 'triangle',
+                name: 'Triangle',
+                desc: 'Besi berbentuk segitiga yang dipukul dengan pemukul besi, bunyinya ting-ting nyaring.',
+                icon: '🔺',
+                color: 'bg-sky-100 border-sky-400',
+                soundType: 'triangle',
+                img: 'https://placehold.co/300x200/0284c7/ffffff?text=TRIANGLE'
+            },
+            {
+                id: 'kastanyet',
+                name: 'Kastanyet',
+                desc: 'Sepasang kepingan kayu yang ditepukkan menggunakan ibu jari dan jari tangan.',
+                icon: '👏',
+                color: 'bg-orange-100 border-orange-400',
+                soundType: 'kastanyet',
+                img: 'https://placehold.co/300x200/f97316/ffffff?text=KASTANYET'
+            },
+            {
+                id: 'kendang',
+                name: 'Kendang',
+                desc: 'Alat musik tradisional yang dipukul kedua sisinya memakai telapak tangan.',
+                icon: '🪘',
+                color: 'bg-purple-100 border-purple-400',
+                soundType: 'kendang',
+                img: 'https://placehold.co/300x200/a855f7/ffffff?text=KENDANG'
+            }
+        ];
+
+        /* ==========================================================================
+           WEB AUDIO API: SINTESIS SUARA ALAT MUSIK (Murni tanpa file external mp3)
+           ========================================================================== */
+        let audioCtx = null;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playInstrumentSound(type) {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                if (type === 'drum') {
+                    // Kick drum synth
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.frequency.setValueAtTime(130, now);
+                    osc.frequency.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    gain.gain.setValueAtTime(1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else if (type === 'triangle') {
+                    // Triangle chime synth
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(1800, now);
+                    gain.gain.setValueAtTime(0.6, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 1.2);
+                } else if (type === 'marakas' || type === 'tamborin' || type === 'kastanyet') {
+                    // White noise shake/snap
+                    const bufferSize = ctx.sampleRate * 0.2;
+                    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) {
+                        data[i] = Math.random() * 2 - 1;
+                    }
+                    const noise = ctx.createBufferSource();
+                    noise.buffer = buffer;
+                    const gain = ctx.createGain();
+                    gain.gain.setValueAtTime(0.5, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    noise.connect(gain);
+                    gain.connect(ctx.destination);
+                    noise.start(now);
+                } else {
+                    // Default rebana / kendang tap tone
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.frequency.setValueAtTime(200, now);
+                    osc.frequency.exponentialRampToValueAtTime(40, now + 0.3);
+                    gain.gain.setValueAtTime(0.8, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch (e) {
+                console.log("Audio not allowed yet or error:", e);
+            }
+        }
+
+        function playFeedbackSound(isCorrect) {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                if (isCorrect) {
+                    // Happy ding
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                    gain.gain.setValueAtTime(0.4, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                } else {
+                    // Low buzz
+                    osc.frequency.setValueAtTime(180, now);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                }
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            } catch (e) {}
+        }
+
+        /* ==========================================================================
+           WEB SPEECH API: SUARA BACA INSTRUKSI (BAHASA INDONESIA)
+           ========================================================================== */
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop previous speech
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.85; // Agak perlahan untuk anak SLB
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Fitur suara tidak didukung di browser ini.");
+            }
+        }
+
+        function readCurrentPageText() {
+            const activePage = document.querySelector('.page-content:not(.hidden)');
+            if (activePage) {
+                // Ambil teks instruksi dari elemen aktif
+                const textToRead = activePage.innerText;
+                speak(textToRead.substring(0, 300)); // Baca 300 karakter pertama
+            }
+        }
+
+        /* ==========================================================================
+           NAVIGASI HALAMAN
+           ========================================================================== */
+        function showPage(pageId) {
+            // Hentikan pembacaan suara jika berpindah halaman
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Trigger re-initialization per halaman jika dibutuhkan
+            if (pageId === 'tebak') initTebakGame();
+            if (pageId === 'pilih') initPilihGame();
+            if (pageId === 'pasangkan') initPasangkanGame();
+            if (pageId === 'kuis') initQuizGame();
+            if (pageId === 'sertifikat') updateCertificateDate();
+        }
+
+        /* ==========================================================================
+           HALAMAN 3: RENDER KARTU BELAJAR ALAT MUSIK
+           ========================================================================== */
+        function renderInstrumentCards() {
+            const container = document.getElementById('instrument-cards-container');
+            container.innerHTML = '';
+
+            instruments.forEach(inst => {
+                const card = document.createElement('div');
+                card.className = `card-custom p-5 bg-white ${inst.color} shadow-lg flex flex-col justify-between items-center text-center`;
+                card.innerHTML = `
+                    <div class="relative w-full h-44 bg-slate-100 rounded-2xl overflow-hidden mb-4 border-2 border-slate-200 flex items-center justify-center">
+                        <img src="${inst.img}" alt="${inst.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x200/cbd5e1/1e293b?text=${inst.name}'">
+                        <span class="absolute top-2 right-2 text-3xl bg-white p-2 rounded-full shadow">${inst.icon}</span>
+                    </div>
+                    <h4 class="text-3xl font-extrabold text-slate-800 mb-2">${inst.name}</h4>
+                    <p class="text-slate-600 font-medium mb-6 text-lg leading-snug">${inst.desc}</p>
+                    
+                    <div class="w-full flex flex-col gap-2 mt-auto">
+                        <button onclick="playInstrumentSound('${inst.soundType}')" class="btn-big bg-amber-400 hover:bg-amber-500 text-slate-900 w-full text-lg py-3">
+                            <i class="fa-solid fa-music"></i> DENGARKAN BUNYI
+                        </button>
+                        <button onclick="speak('${inst.name}. ${inst.desc}')" class="btn-big bg-teal-500 hover:bg-teal-600 text-white w-full text-lg py-2">
+                            <i class="fa-solid fa-volume-high"></i> BACA
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* ==========================================================================
+           HALAMAN 4: PERMAINAN TEBAK ALAT MUSIK
+           ========================================================================== */
+        let tebakIndex = 0;
+        const tebakQuestions = [
+            { target: 'drum', options: ['Drum', 'Gitar', 'Piano'] },
+            { target: 'marakas', options: ['Biola', 'Marakas', 'Seruling'] },
+            { target: 'triangle', options: ['Organ', 'Triangle', 'Drum'] },
+            { target: 'rebana', options: ['Rebana', 'Gitar', 'Kecapi'] }
+        ];
+
+        function initTebakGame() {
+            tebakIndex = 0;
+            renderTebakStep();
+        }
+
+        function renderTebakStep() {
+            const container = document.getElementById('tebak-container');
+            const current = tebakQuestions[tebakIndex];
+            const instData = instruments.find(i => i.id === current.target);
+
+            container.innerHTML = `
+                <div class="bg-slate-100 p-4 rounded-3xl border-4 border-indigo-200 mb-6 flex justify-center">
+                    <img src="${instData.img}" alt="Tebak Gambar" class="h-56 object-contain rounded-2xl" onerror="this.src='https://placehold.co/300x200/6366f1/ffffff?text=${instData.name}'">
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 my-4" id="tebak-options">
+                    ${current.options.map(opt => `
+                        <button onclick="checkTebakAnswer('${opt}', '${instData.name}')" class="btn-big bg-indigo-50 hover:bg-indigo-100 border-2 border-indigo-300 text-indigo-900 w-full text-2xl py-4">
+                            ${opt}
+                        </button>
+                    `).join('')}
+                </div>
+
+                <div id="tebak-feedback" class="min-h-[50px] text-2xl font-bold my-4"></div>
+                <div id="tebak-next-btn" class="hidden mt-4">
+                    <button onclick="nextTebakStep()" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        LANJUT TEBAK BERIKUTNYA <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+        }
+
+        function checkTebakAnswer(selected, correct) {
+            const feedbackEl = document.getElementById('tebak-feedback');
+            const nextBtn = document.getElementById('tebak-next-btn');
+
+            if (selected === correct) {
+                playFeedbackSound(true);
+                feedbackEl.className = 'text-2xl font-bold text-emerald-600 animate-pulse';
+                feedbackEl.innerText = '🌟 Hebat! Jawaban kamu benar!';
+                speak('Hebat! Jawaban kamu benar!');
+                nextBtn.classList.remove('hidden');
+            } else {
+                playFeedbackSound(false);
+                feedbackEl.className = 'text-2xl font-bold text-rose-500';
+                feedbackEl.innerText = '❌ Belum tepat. Ayo coba lagi!';
+                speak('Belum tepat. Ayo coba lagi!');
+            }
+        }
+
+        function nextTebakStep() {
+            tebakIndex++;
+            if (tebakIndex < tebakQuestions.length) {
+                renderTebakStep();
+            } else {
+                showPage('pilih');
+            }
+        }
+
+        /* ==========================================================================
+           HALAMAN 5: PILIH ALAT MUSIK RITMIS
+           ========================================================================== */
+        const pilihData = [
+            { name: 'Drum', isRitmis: true, img: 'https://placehold.co/200x200/ef4444/ffffff?text=DRUM' },
+            { name: 'Gitar', isRitmis: false, img: 'https://placehold.co/200x200/64748b/ffffff?text=GITAR' },
+            { name: 'Marakas', isRitmis: true, img: 'https://placehold.co/200x200/10b981/ffffff?text=MARAKAS' },
+            { name: 'Piano', isRitmis: false, img: 'https://placehold.co/200x200/64748b/ffffff?text=PIANO' },
+            { name: 'Triangle', isRitmis: true, img: 'https://placehold.co/200x200/0284c7/ffffff?text=TRIANGLE' },
+            { name: 'Seruling', isRitmis: false, img: 'https://placehold.co/200x200/64748b/ffffff?text=SERULING' }
+        ];
+
+        function initPilihGame() {
+            const grid = document.getElementById('pilih-grid');
+            const feedback = document.getElementById('pilih-feedback');
+            feedback.innerText = '';
+            grid.innerHTML = '';
+
+            pilihData.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = 'card-custom bg-white p-4 flex flex-col items-center gap-3 border-4 border-slate-200 hover:border-amber-400 focus:outline-none';
+                btn.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}" class="h-32 object-contain rounded-xl" onerror="this.src='https://placehold.co/150x150/cbd5e1/1e293b?text=${item.name}'">
+                    <span class="text-2xl font-bold text-slate-800">${item.name}</span>
+                `;
+                btn.onclick = () => {
+                    if (item.isRitmis) {
+                        playFeedbackSound(true);
+                        btn.classList.add('border-emerald-500', 'bg-emerald-50');
+                        feedback.className = 'text-2xl font-bold text-emerald-600';
+                        feedback.innerText = `👍 Ya! ${item.name} adalah alat musik RITMIS!`;
+                        speak(`Ya! ${item.name} adalah alat musik ritmis!`);
+                    } else {
+                        playFeedbackSound(false);
+                        btn.classList.add('border-rose-400', 'bg-rose-50');
+                        feedback.className = 'text-2xl font-bold text-rose-500';
+                        feedback.innerText = `❌ ${item.name} bukan alat musik ritmis. Coba lagi!`;
+                        speak(`${item.name} bukan alat musik ritmis. Coba pilih yang lain!`);
+                    }
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        /* ==========================================================================
+           HALAMAN 6: PERMAINAN PASANGKAN (MATCHING)
+           ========================================================================== */
+        let selectedImgId = null;
+        let matchedCount = 0;
+
+        const matchItems = [
+            { id: 'm1', name: 'Drum', img: 'https://placehold.co/200x150/ef4444/ffffff?text=DRUM' },
+            { id: 'm2', name: 'Tamborin', img: 'https://placehold.co/200x150/f59e0b/ffffff?text=TAMBORIN' },
+            { id: 'm3', name: 'Triangle', img: 'https://placehold.co/200x150/0284c7/ffffff?text=TRIANGLE' }
+        ];
+
+        function initPasangkanGame() {
+            selectedImgId = null;
+            matchedCount = 0;
+            document.getElementById('matching-status').innerText = '';
+
+            const imgContainer = document.getElementById('matching-images');
+            const nameContainer = document.getElementById('matching-names');
+
+            imgContainer.innerHTML = '<h3 class="text-center font-bold text-slate-700 text-xl border-b pb-2">Gambar</h3>';
+            nameContainer.innerHTML = '<h3 class="text-center font-bold text-slate-700 text-xl border-b pb-2">Nama Alat Musik</h3>';
+
+            // Shuffle names for matching challenge
+            const shuffledNames = [...matchItems].sort(() => Math.random() - 0.5);
+
+            matchItems.forEach(item => {
+                const imgBtn = document.createElement('button');
+                imgBtn.id = `match-img-${item.id}`;
+                imgBtn.className = 'p-3 bg-white border-4 border-purple-200 rounded-2xl flex items-center justify-center cursor-pointer hover:border-purple-400 transition';
+                imgBtn.innerHTML = `<img src="${item.img}" class="h-28 object-contain rounded-lg" onerror="this.src='https://placehold.co/150x100/cbd5e1/1e293b?text=${item.name}'">`;
+                imgBtn.onclick = () => selectMatchingImage(item.id, imgBtn);
+                imgContainer.appendChild(imgBtn);
+            });
+
+            shuffledNames.forEach(item => {
+                const nameBtn = document.createElement('button');
+                nameBtn.id = `match-name-${item.id}`;
+                nameBtn.className = 'p-4 bg-purple-50 border-4 border-purple-200 rounded-2xl text-2xl font-bold text-purple-900 hover:bg-purple-100 transition';
+                nameBtn.innerText = item.name;
+                nameBtn.onclick = () => selectMatchingName(item.id, nameBtn);
+                nameContainer.appendChild(nameBtn);
+            });
+        }
+
+        function selectMatchingImage(id, btnEl) {
+            // Reset image selections styling
+            document.querySelectorAll('#matching-images button').forEach(b => {
+                if (!b.dataset.matched) b.classList.remove('border-amber-400', 'bg-amber-50');
+            });
+
+            if (btnEl.dataset.matched) return;
+
+            selectedImgId = id;
+            btnEl.classList.add('border-amber-400', 'bg-amber-50');
+            speak(`Gambar dipilih`);
+        }
+
+        function selectMatchingName(id, btnEl) {
+            if (!selectedImgId) {
+                speak('Klik gambar dulu ya!');
+                document.getElementById('matching-status').innerText = '💡 Klik Gambar di sebelah kiri dulu!';
+                return;
+            }
+
+            if (btnEl.dataset.matched) return;
+
+            if (selectedImgId === id) {
+                playFeedbackSound(true);
+                const imgBtn = document.getElementById(`match-img-${id}`);
+                
+                imgBtn.classList.remove('border-amber-400', 'bg-amber-50');
+                imgBtn.classList.add('border-emerald-500', 'bg-emerald-100', 'opacity-60');
+                btnEl.classList.add('border-emerald-500', 'bg-emerald-100', 'text-emerald-800', 'opacity-60');
+
+                imgBtn.dataset.matched = 'true';
+                btnEl.dataset.matched = 'true';
+
+                selectedImgId = null;
+                matchedCount++;
+
+                document.getElementById('matching-status').className = 'text-center text-2xl font-bold text-emerald-600';
+                document.getElementById('matching-status').innerText = '🎉 Pasangan Benar!';
+                speak('Pasangan Benar!');
+
+                if (matchedCount === matchItems.length) {
+                    setTimeout(() => {
+                        document.getElementById('matching-status').innerText = '🌟 Hebat! Semua pasangan berhasil dicocokkan!';
+                        speak('Hebat! Semua pasangan berhasil dicocokkan!');
+                    }, 500);
+                }
+            } else {
+                playFeedbackSound(false);
+                document.getElementById('matching-status').className = 'text-center text-2xl font-bold text-rose-500';
+                document.getElementById('matching-status').innerText = '❌ Belum cocok. Coba lagi!';
+                speak('Belum cocok. Coba lagi!');
+            }
+        }
+
+        /* ==========================================================================
+           HALAMAN 7: KUIS SEDERHANA (5 SOAL)
+           ========================================================================== */
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+
+        const quizData = [
+            {
+                q: "Manakah yang termasuk alat musik ritmis?",
+                options: ["Drum", "Piano", "Seruling"],
+                correct: 0
+            },
+            {
+                q: "Apa kegunaan utama alat musik ritmis?",
+                options: ["Membuat irama / ketukan", "Meniup angin", "Petik dawai"],
+                correct: 0
+            },
+            {
+                q: "Alat musik besi berbentuk segitiga bernama...",
+                options: ["Triangle", "Gitar", "Gendang"],
+                correct: 0
+            },
+            {
+                q: "Alat musik yang digoyangkan hingga berbunyi seperti beras berisik adalah...",
+                options: ["Marakas", "Piano", "Biola"],
+                correct: 0
+            },
+            {
+                q: "Alat musik ritmis bulat pipih yang ditepuk tangan adalah...",
+                options: ["Rebana", "Terompet", "Harpa"],
+                correct: 0
+            }
+        ];
+
+        function initQuizGame() {
+            currentQuizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-result-container').classList.add('hidden');
+            document.getElementById('quiz-question-container').classList.remove('hidden');
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const container = document.getElementById('quiz-question-container');
+            const q = quizData[currentQuizIndex];
+
+            document.getElementById('quiz-progress').innerText = `Soal ${currentQuizIndex + 1} / ${quizData.length}`;
+
+            container.innerHTML = `
+                <div class="bg-rose-50 border-3 border-rose-200 p-6 rounded-3xl mb-6 text-center">
+                    <h3 class="text-3xl font-bold text-slate-800 leading-snug">${q.q}</h3>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    ${q.options.map((opt, idx) => `
+                        <button onclick="submitQuizAnswer(${idx})" class="btn-big bg-white hover:bg-rose-50 border-4 border-slate-300 hover:border-rose-400 text-slate-800 text-2xl py-4 justify-start px-6">
+                            <span class="bg-rose-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold mr-2">${String.fromCharCode(65 + idx)}</span>
+                            ${opt}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function submitQuizAnswer(selectedIndex) {
+            const q = quizData[currentQuizIndex];
+            if (selectedIndex === q.correct) {
+                quizScore++;
+                playFeedbackSound(true);
+            } else {
+                playFeedbackSound(false);
+            }
+
+            currentQuizIndex++;
+            if (currentQuizIndex < quizData.length) {
+                renderQuizQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-question-container').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result-container');
+            resultBox.classList.remove('hidden');
+
+            let feedbackTitle = "";
+            let feedbackDesc = "";
+
+            if (quizScore === 5) {
+                feedbackTitle = "🌟 Hebat Sekali!";
+                feedbackDesc = "Kamu menjawab semua soal dengan BENAR sempurna!";
+            } else if (quizScore === 4) {
+                feedbackTitle = "👏 Bagus!";
+                feedbackDesc = "Kamu sudah memahami alat musik ritmis dengan sangat baik!";
+            } else if (quizScore === 3) {
+                feedbackTitle = "👍 Bagus, Ayo Berlatih Lagi!";
+                feedbackDesc = "Hasilmu sudah cukup baik, yuk ulangi lagi agar makin hebat!";
+            } else {
+                feedbackTitle = "😊 Tidak Apa-apa, Yuk Belajar Lagi!";
+                feedbackDesc = "Belajar musik butuh proses, mari coba lagi bersama guru!";
+            }
+
+            resultBox.innerHTML = `
+                <div class="bg-amber-100 border-4 border-amber-400 p-8 rounded-3xl mb-6 shadow-md">
+                    <span class="text-6xl">🏆</span>
+                    <h3 class="text-4xl font-extrabold text-amber-900 mt-2 mb-2">${feedbackTitle}</h3>
+                    <p class="text-2xl font-semibold text-slate-700">${feedbackDesc}</p>
+                    <div class="mt-6 inline-block bg-white px-6 py-2 rounded-full border-2 border-amber-300 text-2xl font-bold text-amber-800">
+                        Skor Kamu: ${quizScore} / ${quizData.length}
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="initQuizGame()" class="btn-big bg-sky-500 hover:bg-sky-600 text-white">
+                        <i class="fa-solid fa-rotate-right"></i> COBA KUIS LAGI
+                    </button>
+                    <button onclick="showPage('sertifikat')" class="btn-big bg-emerald-500 hover:bg-emerald-600 text-white">
+                        AMBIL SERTIFIKAT <i class="fa-solid fa-certificate"></i>
+                    </button>
+                </div>
+            `;
+
+            speak(`${feedbackTitle}. ${feedbackDesc}`);
+        }
+
+        /* ==========================================================================
+           HALAMAN 8: SERTIFIKAT
+           ========================================================================== */
+        function updateCertificateName() {
+            const nameInput = document.getElementById('student-name-input').value;
+            const certDisplay = document.getElementById('cert-name-display');
+            if (nameInput.trim() !== '') {
+                certDisplay.innerText = nameInput;
+            } else {
+                certDisplay.innerText = '[ Nama Peserta Didik ]';
+            }
+        }
+
+        function updateCertificateDate() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('cert-date').innerText = today.toLocaleDateString('id-ID', options);
+        }
+
+        function restartLearning() {
+            showPage('beranda');
+        }
+
+        /* ==========================================================================
+           INITIALIZATION ON LOAD
+           ========================================================================== */
+        window.onload = function() {
+            renderInstrumentCards();
+            showPage('beranda');
+        };
+    </script>
+</body>
+</html>
